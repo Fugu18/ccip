@@ -119,9 +119,7 @@ contract MockCCIPRouter is IRouter, IRouterClient {
     return mockMsgId;
   }
 
-  function _fromBytes(
-    bytes calldata extraArgs
-  ) internal pure returns (Client.EVMExtraArgsV2 memory) {
+  function _fromBytes(bytes calldata extraArgs) internal pure returns (Client.EVMExtraArgsV2 memory) {
     if (extraArgs.length == 0) {
       return Client.EVMExtraArgsV2({gasLimit: DEFAULT_GAS_LIMIT, allowOutOfOrderExecution: false});
     }

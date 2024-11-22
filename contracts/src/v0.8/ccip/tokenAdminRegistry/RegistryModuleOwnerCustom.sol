@@ -44,9 +44,7 @@ contract RegistryModuleOwnerCustom is ITypeAndVersion {
   /// @notice Registers the admin of the token using OZ's AccessControl DEFAULT_ADMIN_ROLE.
   /// @param token The token to register the admin for.
   /// @dev The caller must have the DEFAULT_ADMIN_ROLE as defined by the contract itself.
-  function registerAccessControlDefaultAdmin(
-    address token
-  ) external {
+  function registerAccessControlDefaultAdmin(address token) external {
     bytes32 defaultAdminRole = AccessControl(token).DEFAULT_ADMIN_ROLE();
     if (!AccessControl(token).hasRole(defaultAdminRole, msg.sender)) {
       revert RequiredRoleNotFound(msg.sender, defaultAdminRole, token);
