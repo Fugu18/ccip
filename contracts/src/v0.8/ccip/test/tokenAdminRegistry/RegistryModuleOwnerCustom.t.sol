@@ -105,7 +105,9 @@ contract RegistryModuleOwnerCustom_registerAdminViaOwner is RegistryModuleOwnerC
 }
 
 contract AccessController is AccessControl {
-  constructor(address admin) {
+  constructor(
+    address admin
+  ) {
     _grantRole(DEFAULT_ADMIN_ROLE, admin);
   }
 }
